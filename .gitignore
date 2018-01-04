@@ -1,0 +1,5 @@
+*.swp
+.cache/
+.coverage
+htmlcov/
+*.egg-info/
