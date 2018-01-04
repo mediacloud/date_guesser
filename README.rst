@@ -66,14 +66,7 @@ We benchmarked the accuracy against the wonderful :code:`newspaper` library, usi
 
 .. raw:: html
 
-    <h3>Vaccines</h3><style  type="text/css" >
-        #T_3457ce06_f0f9_11e7_bb20_60f81dc9d130row0_col1 {
-                background-color:  yellow;
-            }    #T_3457ce06_f0f9_11e7_bb20_60f81dc9d130row1_col1 {
-                background-color:  yellow;
-            }    #T_3457ce06_f0f9_11e7_bb20_60f81dc9d130row2_col1 {
-                background-color:  yellow;
-            }</style>  
+    <h3>Vaccines</h3>
     <table id="T_3457ce06_f0f9_11e7_bb20_60f81dc9d130" > 
     <thead>    <tr> 
             <th class="blank level0" ></th> 
@@ -93,14 +86,7 @@ We benchmarked the accuracy against the wonderful :code:`newspaper` library, usi
             <td id="T_3457ce06_f0f9_11e7_bb20_60f81dc9d130row2_col0" class="data row2 col0" >53</td> 
             <td id="T_3457ce06_f0f9_11e7_bb20_60f81dc9d130row2_col1" class="data row2 col1" >66</td> 
         </tr></tbody> 
-    </table> <h3>Aadhar Card in India</h3><style  type="text/css" >
-        #T_3459bc5a_f0f9_11e7_8c42_60f81dc9d130row0_col1 {
-                background-color:  yellow;
-            }    #T_3459bc5a_f0f9_11e7_8c42_60f81dc9d130row1_col1 {
-                background-color:  yellow;
-            }    #T_3459bc5a_f0f9_11e7_8c42_60f81dc9d130row2_col1 {
-                background-color:  yellow;
-            }</style>  
+    </table> <h3>Aadhar Card in India</h3>
     <table id="T_3459bc5a_f0f9_11e7_8c42_60f81dc9d130" > 
     <thead>    <tr> 
             <th class="blank level0" ></th> 
@@ -120,14 +106,7 @@ We benchmarked the accuracy against the wonderful :code:`newspaper` library, usi
             <td id="T_3459bc5a_f0f9_11e7_8c42_60f81dc9d130row2_col0" class="data row2 col0" >44</td> 
             <td id="T_3459bc5a_f0f9_11e7_8c42_60f81dc9d130row2_col1" class="data row2 col1" >74</td> 
         </tr></tbody> 
-    </table> <h3>Donald Trump in 2017</h3><style  type="text/css" >
-        #T_345b1de8_f0f9_11e7_99b2_60f81dc9d130row0_col1 {
-                background-color:  yellow;
-            }    #T_345b1de8_f0f9_11e7_99b2_60f81dc9d130row1_col1 {
-                background-color:  yellow;
-            }    #T_345b1de8_f0f9_11e7_99b2_60f81dc9d130row2_col1 {
-                background-color:  yellow;
-            }</style>  
+    </table> <h3>Donald Trump in 2017</h3>
     <table id="T_345b1de8_f0f9_11e7_99b2_60f81dc9d130" > 
     <thead>    <tr> 
             <th class="blank level0" ></th> 
@@ -147,14 +126,7 @@ We benchmarked the accuracy against the wonderful :code:`newspaper` library, usi
             <td id="T_345b1de8_f0f9_11e7_99b2_60f81dc9d130row2_col0" class="data row2 col0" >61</td> 
             <td id="T_345b1de8_f0f9_11e7_99b2_60f81dc9d130row2_col1" class="data row2 col1" >85</td> 
         </tr></tbody> 
-    </table> <h3>Recipes for desserts and chocolate</h3><style  type="text/css" >
-        #T_345ce952_f0f9_11e7_bd73_60f81dc9d130row0_col1 {
-                background-color:  yellow;
-            }    #T_345ce952_f0f9_11e7_bd73_60f81dc9d130row1_col1 {
-                background-color:  yellow;
-            }    #T_345ce952_f0f9_11e7_bd73_60f81dc9d130row2_col1 {
-                background-color:  yellow;
-            }</style>  
+    </table> <h3>Recipes for desserts and chocolate</h3>
     <table id="T_345ce952_f0f9_11e7_bd73_60f81dc9d130" > 
     <thead>    <tr> 
             <th class="blank level0" ></th> 
