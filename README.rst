@@ -58,7 +58,7 @@ The library is not yet available on PyPI, so installation is via github only for
 
 .. code-block:: bash
 
-    pip install git+https://github.com/ColCarroll/date_guesser
+    pip install git+https://github.com/mitmedialab/date_guesser
                                                   
 Performance
 -----------
@@ -148,7 +148,7 @@ We benchmarked the accuracy against the wonderful :code:`newspaper` library, usi
         </tr></tbody> 
     </table>
 
-.. |Build Status| image:: https://travis-ci.org/ColCarroll/date_guesser.png?branch=master
-   :target: https://travis-ci.org/ColCarroll/date_guesser
-.. |Coverage| image:: https://coveralls.io/repos/github/ColCarroll/date_guesser/badge.svg?branch=master
-   :target: https://coveralls.io/github/ColCarroll/date_guesser?branch=master
+.. |Build Status| image:: https://travis-ci.org/mitmedialab/date_guesser.png?branch=master
+   :target: https://travis-ci.org/mitmedialab/date_guesser
+.. |Coverage| image:: https://coveralls.io/repos/github/mitmedialab/date_guesser/badge.svg?branch=master
+   :target: https://coveralls.io/github/mitmedialab/date_guesser?branch=master
