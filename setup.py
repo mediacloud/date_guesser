@@ -20,7 +20,7 @@ setup(
     long_description=long_description,
     author='Colin Carroll',
     author_email='ccarroll@mit.edu',
-    url='https://github.com/ColCarroll/date_guesser',
+    url='https://github.com/mitmedialab/date_guesser',
     license='MIT',
     classifiers=[
         'Development Status :: 3 - Alpha',
