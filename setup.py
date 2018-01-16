@@ -15,7 +15,7 @@ with open(requirements_file) as f:
 
 setup(
     name='date_guesser',
-    version='1.0.0',
+    version='1.1.0',
     description='Extract publication dates from web pages',
     long_description=long_description,
     author='Colin Carroll',
