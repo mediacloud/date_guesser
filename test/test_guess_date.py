@@ -3,8 +3,19 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 import pytz
 
-from date_guesser import DateGuesser
+from date_guesser import DateGuesser, guess_date
 from date_guesser.constants import Accuracy, NO_METHOD
+
+
+def test_guess_date():
+    # Just making sure it works
+    url = 'https://www.nytimes.com/opinion/catalonia-spain-puigdemont.html'
+    html = '<could be anything></could>'
+
+    guess = guess_date(url, html)
+    assert guess.date is None
+    assert guess.accuracy is Accuracy.NONE
+    assert guess.method is NO_METHOD
 
 
 class TestDateGuesser(object):

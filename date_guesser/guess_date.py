@@ -7,6 +7,25 @@ from .html import get_tag_checkers, get_image_url_checker
 from .urls import parse_url_for_date, filter_url_for_undateable
 
 
+def guess_date(url, html):
+    """Guess the date of publication of a webpage.
+
+    Attributes
+    ----------
+    url : str
+        url used to retrieve the webpage
+    html : str
+        raw html of the webpage
+
+    Returns
+    -------
+    namedtuple: (datetime or None, Accuracy, str)
+        In case a reasonable guess can be made, returns a datetime, Enum of accuracy, and
+        string describing how the date was obtained
+    """
+    return DateGuesser().guess_date(url, html)
+
+
 class DateGuesser(object):
     def __init__(self):
         self.parser = MultiDateParser(arrow.parser.DateTimeParser(locale=LOCALE))
@@ -52,8 +71,9 @@ class DateGuesser(object):
 
         Returns
         -------
-        (datetime or None, Accuracy)
-            In case a reasonable guess can be made, returns a datetime and Enum of accuracy
+        namedtuple: (datetime or None, Accuracy, str)
+            In case a reasonable guess can be made, returns a datetime, Enum of accuracy, and
+            string describing how the date was obtained
         """
         reason_to_skip = filter_url_for_undateable(url)
         if reason_to_skip is not None:

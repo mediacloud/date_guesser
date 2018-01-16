@@ -16,6 +16,16 @@ def test__make_tag_checker():
     assert tag_checker(BeautifulSoup('', 'lxml')) == (None, NO_METHOD)
 
 
+def test__make_tag_checker_self_closing_tag():
+    test_html = '<meta class="foo"/><crazytown class="foo">some_date</crazytown>'
+    tag_checker = _make_tag_checker({'class': 'foo'}, text=True)
+    soup = BeautifulSoup(test_html, 'lxml')
+
+    extracted, method = tag_checker(soup)
+    assert extracted == 'some_date'
+    assert 'crazytown' in method
+
+
 def test_get_tag_checkers():
     test_case = '''
     <html><head>
