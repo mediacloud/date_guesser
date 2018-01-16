@@ -21,13 +21,11 @@ The date guesser uses both the url and the html to work, and uses some heuristic
 
 .. code-block:: python
     
-    from date_guesser import DateGuesser, Accuracy
+    from date_guesser import guess_date, Accuracy
     
-    guesser = DateGuesser()
-
     # Uses url slugs when available
-    guess = guesser.guess_date(url='https://www.nytimes.com/2017/10/13/some_news.html',
-                               html='<could be anything></could>')
+    guess = guess_date(url='https://www.nytimes.com/2017/10/13/some_news.html', 
+                       html='<could be anything></could>')
 
     #  Returns a namedtuple with three fields
     guess.date      # datetime.datetime(2017, 10, 13, 0, 0, tzinfo=<UTC>)
@@ -42,8 +40,8 @@ In case there are two trustworthy sources of dates, :code:`date_guesser` prefers
         <html><head>                                                                   
         <meta property="article:published" itemprop="datePublished" content="2017-10-13T04:56:54-04:00" />         
         </head></html>'''
-    guess = guesser.guess_date(url='https://www.nytimes.com/2017/10/some_news.html',
-                               html=html)
+    guess = guess_date(url='https://www.nytimes.com/2017/10/some_news.html',
+                       html=html)
     guess.date  # datetime.datetime(2017, 10, 13, 4, 56, 54, tzinfo=tzoffset(None, -14400))
     guess.accuracy is Accuracy.DATETIME  # True
 
@@ -55,10 +53,38 @@ But :code:`date_guesser` is not led astray by more accurate, less trustworthy so
         <html><head>                                                                   
         <meta property="og:image" content="foo.com/2016/7/4/whatever.jpg"/>         
         </head></html>'''
-    guess = guesser.guess_date(url='https://www.nytimes.com/2017/10/some_news.html',
-                               html=html)
+    guess = guess_date(url='https://www.nytimes.com/2017/10/some_news.html',
+                       html=html)
     guess.date  # datetime.datetime(2017, 10, 15, 0, 0, tzinfo=<UTC>)
     guess.accuracy is Accuracy.PARTIAL  # True   
+
+
+Future Work
+-----------
+
+Languages
+^^^^^^^^^
+
+The code does quite poorly on foreign news sources. This page is Ukranian and has a date on it that 
+a non-Ukranian could identify, but it is not extracted:
+
+.. code-block:: python
+ 
+    guess = guess_date(url='https://www.dw.com/uk/коментар-націоналізм-родом-зі-східної-європи/a-42081385',
+                       html=requests.get(url).text)
+    guess.date  # None
+    guess.accuracy is Accuracy.NONE  # True
+    guess.method == 'Did not find anything'  # True
+
+
+Reckless Mode
+^^^^^^^^^^^^^
+
+We keep track of the accuracy of extracted dates, but we do not keep track of the confidence of extracted 
+dates being accurate. This may be a way to do more tuning given a particular use case. For example, one
+strategy we do *not* employ is a regex for all the date patterns we recognize, since that was far too
+error-prone. Such an approach might be preferable to returning :code:`None` in certain cases.
+
 
 Performance
 -----------
