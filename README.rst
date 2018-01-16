@@ -9,7 +9,7 @@ This was produced as a part of the `mediacloud project <https://mediacloud.org/>
 Installation
 ------------
 
-The library is available `on PyPI <https://mediacloud.org/>`_, and may be installed with 
+The library is available `on PyPI <https://pypi.org/project/date-guesser/>`_, and may be installed with 
 
 .. code-block:: bash
 
