@@ -70,6 +70,8 @@ a non-Ukranian could identify, but it is not extracted:
 
 .. code-block:: python
  
+    import requests
+
     guess = guess_date(url='https://www.dw.com/uk/коментар-націоналізм-родом-зі-східної-європи/a-42081385',
                        html=requests.get(url).text)
     guess.date  # None
