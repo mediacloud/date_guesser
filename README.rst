@@ -64,89 +64,59 @@ Performance
 -----------
 We benchmarked the accuracy against the wonderful :code:`newspaper` library, using one hundred urls gathered from each of four very different topics in the :code:`mediacloud` system. This includes blogs and news articles, as well as many urls that have no date (in which case a guess is marked correct only if it returns :code:`None`).  
 
-.. raw:: html
+Vaccines
+^^^^^^^^
 
-    <h3>Vaccines</h3>
-    <table id="T_3457ce06_f0f9_11e7_bb20_60f81dc9d130" > 
-    <thead>    <tr> 
-            <th class="blank level0" ></th> 
-            <th class="col_heading level0 col0" >newspaper</th> 
-            <th class="col_heading level0 col1" >date_guesser</th> 
-        </tr></thead> 
-    <tbody>    <tr> 
-            <th id="T_3457ce06_f0f9_11e7_bb20_60f81dc9d130level0_row0" class="row_heading level0 row0" >1 days</th> 
-            <td id="T_3457ce06_f0f9_11e7_bb20_60f81dc9d130row0_col0" class="data row0 col0" >48</td> 
-            <td id="T_3457ce06_f0f9_11e7_bb20_60f81dc9d130row0_col1" class="data row0 col1" >57</td> 
-        </tr>    <tr> 
-            <th id="T_3457ce06_f0f9_11e7_bb20_60f81dc9d130level0_row1" class="row_heading level0 row1" >7 days</th> 
-            <td id="T_3457ce06_f0f9_11e7_bb20_60f81dc9d130row1_col0" class="data row1 col0" >51</td> 
-            <td id="T_3457ce06_f0f9_11e7_bb20_60f81dc9d130row1_col1" class="data row1 col1" >61</td> 
-        </tr>    <tr> 
-            <th id="T_3457ce06_f0f9_11e7_bb20_60f81dc9d130level0_row2" class="row_heading level0 row2" >15 days</th> 
-            <td id="T_3457ce06_f0f9_11e7_bb20_60f81dc9d130row2_col0" class="data row2 col0" >53</td> 
-            <td id="T_3457ce06_f0f9_11e7_bb20_60f81dc9d130row2_col1" class="data row2 col1" >66</td> 
-        </tr></tbody> 
-    </table> <h3>Aadhar Card in India</h3>
-    <table id="T_3459bc5a_f0f9_11e7_8c42_60f81dc9d130" > 
-    <thead>    <tr> 
-            <th class="blank level0" ></th> 
-            <th class="col_heading level0 col0" >newspaper</th> 
-            <th class="col_heading level0 col1" >date_guesser</th> 
-        </tr></thead> 
-    <tbody>    <tr> 
-            <th id="T_3459bc5a_f0f9_11e7_8c42_60f81dc9d130level0_row0" class="row_heading level0 row0" >1 days</th> 
-            <td id="T_3459bc5a_f0f9_11e7_8c42_60f81dc9d130row0_col0" class="data row0 col0" >44</td> 
-            <td id="T_3459bc5a_f0f9_11e7_8c42_60f81dc9d130row0_col1" class="data row0 col1" >73</td> 
-        </tr>    <tr> 
-            <th id="T_3459bc5a_f0f9_11e7_8c42_60f81dc9d130level0_row1" class="row_heading level0 row1" >7 days</th> 
-            <td id="T_3459bc5a_f0f9_11e7_8c42_60f81dc9d130row1_col0" class="data row1 col0" >44</td> 
-            <td id="T_3459bc5a_f0f9_11e7_8c42_60f81dc9d130row1_col1" class="data row1 col1" >74</td> 
-        </tr>    <tr> 
-            <th id="T_3459bc5a_f0f9_11e7_8c42_60f81dc9d130level0_row2" class="row_heading level0 row2" >15 days</th> 
-            <td id="T_3459bc5a_f0f9_11e7_8c42_60f81dc9d130row2_col0" class="data row2 col0" >44</td> 
-            <td id="T_3459bc5a_f0f9_11e7_8c42_60f81dc9d130row2_col1" class="data row2 col1" >74</td> 
-        </tr></tbody> 
-    </table> <h3>Donald Trump in 2017</h3>
-    <table id="T_345b1de8_f0f9_11e7_99b2_60f81dc9d130" > 
-    <thead>    <tr> 
-            <th class="blank level0" ></th> 
-            <th class="col_heading level0 col0" >newspaper</th> 
-            <th class="col_heading level0 col1" >date_guesser</th> 
-        </tr></thead> 
-    <tbody>    <tr> 
-            <th id="T_345b1de8_f0f9_11e7_99b2_60f81dc9d130level0_row0" class="row_heading level0 row0" >1 days</th> 
-            <td id="T_345b1de8_f0f9_11e7_99b2_60f81dc9d130row0_col0" class="data row0 col0" >60</td> 
-            <td id="T_345b1de8_f0f9_11e7_99b2_60f81dc9d130row0_col1" class="data row0 col1" >79</td> 
-        </tr>    <tr> 
-            <th id="T_345b1de8_f0f9_11e7_99b2_60f81dc9d130level0_row1" class="row_heading level0 row1" >7 days</th> 
-            <td id="T_345b1de8_f0f9_11e7_99b2_60f81dc9d130row1_col0" class="data row1 col0" >61</td> 
-            <td id="T_345b1de8_f0f9_11e7_99b2_60f81dc9d130row1_col1" class="data row1 col1" >83</td> 
-        </tr>    <tr> 
-            <th id="T_345b1de8_f0f9_11e7_99b2_60f81dc9d130level0_row2" class="row_heading level0 row2" >15 days</th> 
-            <td id="T_345b1de8_f0f9_11e7_99b2_60f81dc9d130row2_col0" class="data row2 col0" >61</td> 
-            <td id="T_345b1de8_f0f9_11e7_99b2_60f81dc9d130row2_col1" class="data row2 col1" >85</td> 
-        </tr></tbody> 
-    </table> <h3>Recipes for desserts and chocolate</h3>
-    <table id="T_345ce952_f0f9_11e7_bd73_60f81dc9d130" > 
-    <thead>    <tr> 
-            <th class="blank level0" ></th> 
-            <th class="col_heading level0 col0" >newspaper</th> 
-            <th class="col_heading level0 col1" >date_guesser</th> 
-        </tr></thead> 
-    <tbody>    <tr> 
-            <th id="T_345ce952_f0f9_11e7_bd73_60f81dc9d130level0_row0" class="row_heading level0 row0" >1 days</th> 
-            <td id="T_345ce952_f0f9_11e7_bd73_60f81dc9d130row0_col0" class="data row0 col0" >65</td> 
-            <td id="T_345ce952_f0f9_11e7_bd73_60f81dc9d130row0_col1" class="data row0 col1" >83</td> 
-        </tr>    <tr> 
-            <th id="T_345ce952_f0f9_11e7_bd73_60f81dc9d130level0_row1" class="row_heading level0 row1" >7 days</th> 
-            <td id="T_345ce952_f0f9_11e7_bd73_60f81dc9d130row1_col0" class="data row1 col0" >69</td> 
-            <td id="T_345ce952_f0f9_11e7_bd73_60f81dc9d130row1_col1" class="data row1 col1" >85</td> 
-        </tr>    <tr> 
-            <th id="T_345ce952_f0f9_11e7_bd73_60f81dc9d130level0_row2" class="row_heading level0 row2" >15 days</th> 
-            <td id="T_345ce952_f0f9_11e7_bd73_60f81dc9d130row2_col0" class="data row2 col0" >69</td> 
-            <td id="T_345ce952_f0f9_11e7_bd73_60f81dc9d130row2_col1" class="data row2 col1" >87</td> 
-        </tr></tbody> 
-    </table>
++---------+---------------+-----------+
+|         | date_guesser  | newspaper |
++=========+===============+===========+
+| 1 days  |      48       |   **57**  |
++---------+---------------+-----------+
+| 7 days  |       51      |   **61**  |
++---------+---------------+-----------+
+| 15 days |       53      |   **66**  |
++---------+---------------+-----------+
+
+Aadhar Card in India
+^^^^^^^^^^^^^^^^^^^^
+
++---------+---------------+-----------+
+|         | date_guesser  | newspaper |
++=========+===============+===========+
+| 1 days  |      44       |   **73**  |
++---------+---------------+-----------+
+| 7 days  |       44      |   **74**  |
++---------+---------------+-----------+
+| 15 days |       44      |   **74**  |
++---------+---------------+-----------+
+
+Donald Trump in 2017
+^^^^^^^^^^^^^^^^^^^^
+
++---------+---------------+-----------+
+|         | date_guesser  | newspaper |
++=========+===============+===========+
+| 1 days  |      60       |  **79**   |
++---------+---------------+-----------+
+| 7 days  |       61      |  **83**   |
++---------+---------------+-----------+
+| 15 days |       61      |  **85**   |
++---------+---------------+-----------+
+
+Recipes for desserts and chocolate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
++---------+---------------+-----------+
+|         | date_guesser  | newspaper |
++=========+===============+===========+
+| 1 days  |       65      |   **83**  |
++---------+---------------+-----------+
+| 7 days  |       69      |   **85**  |
++---------+---------------+-----------+
+| 15 days |       69      |   **87**  |
++---------+---------------+-----------+
+
+
 
 .. |Build Status| image:: https://travis-ci.org/mitmedialab/date_guesser.png?branch=master
    :target: https://travis-ci.org/mitmedialab/date_guesser
