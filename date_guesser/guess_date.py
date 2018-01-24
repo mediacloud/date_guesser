@@ -19,9 +19,7 @@ def guess_date(url, html):
 
     Returns
     -------
-    namedtuple: (datetime or None, Accuracy, str)
-        In case a reasonable guess can be made, returns a datetime, Enum of accuracy, and
-        string describing how the date was obtained
+    Guess object.
     """
     return DateGuesser().guess_date(url, html)
 
@@ -37,14 +35,14 @@ class DateGuesser(object):
 
         Attributes
         ----------
-        current : (datetime or None, Accuracy)
+        current : Guess object.
             Current datetime and accuracy
-        new : (datetime or None, Accuracy)
+        new : Guess object.
             Proposed datetime and accuracy
 
         Returns
         -------
-        (datetime or None, Accuracy)
+        Guess object.
             Either current or new
         """
         if current.accuracy >= new.accuracy:
@@ -71,16 +69,14 @@ class DateGuesser(object):
 
         Returns
         -------
-        namedtuple: (datetime or None, Accuracy, str)
-            In case a reasonable guess can be made, returns a datetime, Enum of accuracy, and
-            string describing how the date was obtained
+        Guess object.
         """
         reason_to_skip = filter_url_for_undateable(url)
         if reason_to_skip is not None:
             return reason_to_skip
 
         # default guess
-        guess = Guess(None, Accuracy.NONE, NO_METHOD)
+        guess = Guess(date=None, accuracy=Accuracy.NONE, method=NO_METHOD)
         # Try using the url
         guess = self._choose_better_guess(guess, parse_url_for_date(url))
 
@@ -89,7 +85,7 @@ class DateGuesser(object):
         for tag_checker in self.tag_checkers:
             date_string, method = tag_checker(soup)
             new_date, new_accuracy = self.parser.parse(date_string)
-            new_guess = Guess(new_date, new_accuracy, method)
+            new_guess = Guess(date=new_date, accuracy=new_accuracy, method=method)
             guess = self._choose_better_guess(guess, new_guess)
 
         # Try using an image tag
@@ -104,5 +100,5 @@ class DateGuesser(object):
         if image_url is not None:
             guess = parse_url_for_date(image_url)
             if guess is not None:
-                return Guess(guess.date, guess.accuracy, ', '.join([html_method, guess.method]))
-        return Guess(None, Accuracy.NONE, NO_METHOD)
+                return Guess(date=guess.date, accuracy=guess.accuracy, method=', '.join([html_method, guess.method]))
+        return Guess(date=None, accuracy=Accuracy.NONE, method=NO_METHOD)
