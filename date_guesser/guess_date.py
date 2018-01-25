@@ -19,7 +19,7 @@ def guess_date(url, html):
 
     Returns
     -------
-    Guess object.
+    date_guesser.constants.Guess object.
     """
     return DateGuesser().guess_date(url, html)
 
@@ -35,14 +35,14 @@ class DateGuesser(object):
 
         Attributes
         ----------
-        current : Guess object.
+        current : date_guesser.constants.Guess object.
             Current datetime and accuracy
-        new : Guess object.
+        new : date_guesser.constants.Guess object.
             Proposed datetime and accuracy
 
         Returns
         -------
-        Guess object.
+        date_guesser.constants.Guess object.
             Either current or new
         """
         if current.accuracy >= new.accuracy:
@@ -69,7 +69,7 @@ class DateGuesser(object):
 
         Returns
         -------
-        Guess object.
+        date_guesser.constants.Guess object.
         """
         reason_to_skip = filter_url_for_undateable(url)
         if reason_to_skip is not None:

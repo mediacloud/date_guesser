@@ -53,7 +53,7 @@ def parse_url_for_date(url):
 
     Returns
     -------
-    Guess object.
+    date_guesser.constants.Guess object.
     """
     accuracy = Accuracy.NONE
     for captures, method in url_date_generator(url):
@@ -101,7 +101,7 @@ def filter_url_for_undateable(url):
 
     Returns
     -------
-    Guess object or None
+    date_guesser.constants.Guess object or None
         guess describing why the page is undateable or None if it might be dateable
     """
     parsed = urlparse(url)
