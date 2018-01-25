@@ -1,5 +1,4 @@
-from collections import namedtuple
-from enum import Enum, IntEnum
+from enum import IntEnum
 
 LOCALE = 'en'
 
@@ -14,4 +13,32 @@ class Accuracy(IntEnum):
 
 NO_METHOD = 'Did not find anything'
 
-Guess = namedtuple('Guess', ('date', 'accuracy', 'method'))
+
+class Guess(object):
+    """Date guessing result for the provided URL and its HTML contents."""
+
+    __slots__ = [
+        '__date',
+        '__accuracy',
+        '__method',
+    ]
+
+    def __init__(self, date, accuracy, method):
+        self.__date = date
+        self.__accuracy = accuracy
+        self.__method = method
+
+    @property
+    def accuracy(self):
+        """Accuracy of the guess."""
+        return self.__accuracy
+
+    @property
+    def date(self):
+        """datetime.datetime object with the guessed date, or None if a guess can't be made."""
+        return self.__date
+
+    @property
+    def method(self):
+        """Method that was used for guessing the date, or None if a guess can't be made."""
+        return self.__method

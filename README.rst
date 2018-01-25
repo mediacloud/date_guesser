@@ -27,7 +27,7 @@ The date guesser uses both the url and the html to work, and uses some heuristic
     guess = guess_date(url='https://www.nytimes.com/2017/10/13/some_news.html', 
                        html='<could be anything></could>')
 
-    #  Returns a namedtuple with three fields
+    #  Returns a date_guesser.constants.Guess object
     guess.date      # datetime.datetime(2017, 10, 13, 0, 0, tzinfo=<UTC>)
     guess.accuracy  # Accuracy.DATE
     guess.method    # 'Found /2017/10/13/ in url'

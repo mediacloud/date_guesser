@@ -53,7 +53,7 @@ def parse_url_for_date(url):
 
     Returns
     -------
-    mediawords.date_guesser.constants.Guess
+    date_guesser.constants.Guess object.
     """
     accuracy = Accuracy.NONE
     for captures, method in url_date_generator(url):
@@ -83,10 +83,10 @@ def parse_url_for_date(url):
 
         try:
             date_guess = datetime.datetime(tzinfo=pytz.utc, **captures)
-            return Guess(date_guess, accuracy, method)
+            return Guess(date=date_guess, accuracy=accuracy, method=method)
         except ValueError:
             pass
-    return Guess(None, Accuracy.NONE, NO_METHOD)
+    return Guess(date=None, accuracy=Accuracy.NONE, method=NO_METHOD)
 
 
 def filter_url_for_undateable(url):
@@ -101,7 +101,7 @@ def filter_url_for_undateable(url):
 
     Returns
     -------
-    mediawords.date_guesser.constants.Guess or None
+    date_guesser.constants.Guess object or None
         guess describing why the page is undateable or None if it might be dateable
     """
     parsed = urlparse(url)
@@ -114,20 +114,23 @@ def filter_url_for_undateable(url):
 
     hostname = parsed.hostname
     if hostname is None:
-        return Guess(None, Accuracy.NONE, 'Invalid url ({})'.format(url[:200]))
+        return Guess(date=None, accuracy=Accuracy.NONE, method='Invalid url ({})'.format(url[:200]))
 
     elif hostname.endswith('wikipedia.org'):
-        return Guess(None, Accuracy.NONE, 'No date for wiki pages')
+        return Guess(date=None, accuracy=Accuracy.NONE, method='No date for wiki pages')
 
     elif hostname.endswith('twitter.com') and ('status' not in path_parts):
-        return Guess(None, Accuracy.NONE, 'Twitter, but not a single tweet')
+        return Guess(date=None, accuracy=Accuracy.NONE, method='Twitter, but not a single tweet')
 
     elif parsed.path.strip('/') == '':
-        return Guess(None, Accuracy.NONE,
-                    'Empty `path`, might be frontpage of {}'.format(hostname))
+        return Guess(
+            date=None,
+            accuracy=Accuracy.NONE,
+            method='Empty `path`, might be frontpage of {}'.format(hostname)
+        )
     path_contains = invalid_paths.intersection(path_parts)
     if path_contains:  # nonempty intersection is truthy
         bad_parts = ', '.join(['"{}"' for segment in path_contains])
-        return Guess(None, Accuracy.NONE, 'URL ({}) contains {}'.format(url, bad_parts) )
+        return Guess(date=None, accuracy=Accuracy.NONE, method='URL ({}) contains {}'.format(url, bad_parts) )
 
     return None
