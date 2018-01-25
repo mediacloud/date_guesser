@@ -23,7 +23,7 @@ class Guess(object):
         '__method',
     ]
 
-    def __init__(self, date, accuracy = None, method = None):
+    def __init__(self, date, accuracy, method):
         self.__date = date
         self.__accuracy = accuracy
         self.__method = method
