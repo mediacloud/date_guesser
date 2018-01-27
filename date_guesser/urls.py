@@ -105,7 +105,7 @@ def filter_url_for_undateable(url):
         guess describing why the page is undateable or None if it might be dateable
     """
     parsed = urlparse(url)
-	# url fragments that are likely to be undateable
+    # url fragments that are likely to be undateable
     invalid_paths = {
         'search',
         'tag',
@@ -131,6 +131,9 @@ def filter_url_for_undateable(url):
     path_contains = invalid_paths.intersection(path_parts)
     if path_contains:  # nonempty intersection is truthy
         bad_parts = ', '.join(['"{}"' for segment in path_contains])
-        return Guess(date=None, accuracy=Accuracy.NONE, method='URL ({}) contains {}'.format(url, bad_parts) )
+        return Guess(
+            date=None,
+            accuracy=Accuracy.NONE,
+            method='URL ({}) contains {}'.format(url, bad_parts))
 
     return None

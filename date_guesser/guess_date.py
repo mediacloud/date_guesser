@@ -100,5 +100,8 @@ class DateGuesser(object):
         if image_url is not None:
             guess = parse_url_for_date(image_url)
             if guess is not None:
-                return Guess(date=guess.date, accuracy=guess.accuracy, method=', '.join([html_method, guess.method]))
+                return Guess(
+                    date=guess.date,
+                    accuracy=guess.accuracy,
+                    method=', '.join([html_method, guess.method]))
         return Guess(date=None, accuracy=Accuracy.NONE, method=NO_METHOD)

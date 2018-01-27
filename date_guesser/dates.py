@@ -24,6 +24,7 @@ class MultiDateParser(object):
         DateFormat('MMM. D, YYYY', Accuracy.DATE),
         DateFormat('MMMM D, YYYY', Accuracy.DATE),
         DateFormat('MMMM YYYY', Accuracy.PARTIAL),
+        DateFormat('dddd, MMM. D YYYY, HH:mm A ZZZ', Accuracy.DATETIME),
         )
 
     def __init__(self, parser):
@@ -33,7 +34,7 @@ class MultiDateParser(object):
     def _try_format(self, date_string, date_format):
         try:
             parsed_date = self.parser.parse(date_string, fmt=date_format.format)
-        except arrow.parser.ParserError:
+        except (arrow.parser.ParserError, ValueError):
             return None, Accuracy.NONE
         if parsed_date.tzinfo is None:
             parsed_date = parsed_date.replace(tzinfo=pytz.utc)

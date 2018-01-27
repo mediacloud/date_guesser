@@ -42,7 +42,7 @@ def _make_tag_checker(element_kwargs, name=None, attr='content', text=False):
                     value = ele.get_text()
             else:
                 value = ele.get(attr)
-            if value is not None:
+            if value:
                 ele_str = str(ele)[:200]  # just in case
                 method = 'Extracted from tag:\n{}'.format(ele_str)
                 return value, method
@@ -73,13 +73,14 @@ def get_tag_checkers():
         _make_tag_checker({'name': 'parsely-pub-date'}),  # wired
         _make_tag_checker({'class': 'date-display-single'}),  # cyber.harvard.edu
         _make_tag_checker({'name': 'citation_publication_date'}),  # elsevier
-        _make_tag_checker({}, name='time', attr='datetime'), # nature
-        _make_tag_checker({'name': 'pubdate'}), # old pbs
-        _make_tag_checker({'id': 'absdate'}, attr='value'), # pubmed
+        _make_tag_checker({}, name='time', attr='datetime'),  # nature
+        _make_tag_checker({'name': 'pubdate'}),  # old pbs
+        _make_tag_checker({'id': 'absdate'}, attr='value'),  # pubmed
         _make_tag_checker({'name': 'Last-Modified'}),  # times of india
         _make_tag_checker({'class': 'byline'}, text=True),  # economic times
         _make_tag_checker({'class': 'metadata'}, name='div', text=True),  # twitter
         _make_tag_checker({'class': 'tweet-timestamp'}, attr='title'),  # twitter
+        _make_tag_checker({'class': 'dateline'}, name='div', text=True),  # archive.org backup
         # The following are from (MIT Licensed) https://github.com/codelucas/newspaper
         _make_tag_checker({'property': 'rnews:datePublished'}),
         _make_tag_checker({'name': 'OriginalPublicationDate'}),

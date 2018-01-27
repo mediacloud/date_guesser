@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from bs4 import BeautifulSoup
+import dateutil
 import pytz
 
 from date_guesser import DateGuesser, guess_date
@@ -103,3 +104,22 @@ class TestDateGuesser(object):
         assert guess.date is None
         assert guess.accuracy is Accuracy.NONE
         assert 'No date' in guess.method
+
+    def test_malformed_date(self):
+        url = 'https://nytimes.com/opinion/catalonia-spain-puigdemont.html'
+        html = '''
+        <html><header>
+        <div class="dateline">
+        <p>Published
+        <time datetime="2015-26-26T04:03:40Z" pubdate>Thursday, Mar. 26 2015, 12:26 AM EDT</time>
+        </p>
+        <p>Last updated
+        <time class="updated" datetime="2015-17-26T11:03:42Z" pubdate>Thursday, Mar. 26 2015, 7:17 AM EDT</time>
+        </p>
+        </div>
+        </header></html>
+        '''
+        guess = self.parser.guess_date(url, html)
+        assert guess.date == datetime(2015, 3, 26, 0, 26, tzinfo=dateutil.tz.tzlocal())
+        assert guess.accuracy is Accuracy.DATETIME
+        assert 'Thursday' in guess.method

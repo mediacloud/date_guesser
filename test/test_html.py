@@ -35,7 +35,7 @@ def test_get_tag_checkers():
     <meta property="article:published_time" content='3'>
     <meta name="DC.date.published" content='4'>
     <meta name="pubDate" content='5'>
-    <time class="buzz-timestamp__time js-timestamp__time" data-unix='6'>
+    <time class="buzz-timestamp__time js-timestamp__time" data-unix='6'></time>
     <abbr class="published" title='7'></abbr>
     <span class="timestamp" datetime='8'></span>
     <meta property="nv:date" content='9'>
@@ -55,14 +55,15 @@ def test_get_tag_checkers():
     <div class="byline">23</div>
     <div class="metadata">24</div>
     <div class="tweet-timestamp" title=25></div>
-    <meta property="rnews:datePublished" content='26'>
-    <meta name="OriginalPublicationDate" content='27'>
-    <meta property="og:published_time" content='28'>
-    <meta name="article_date_original" content='29'>
-    <meta name="publication_date" content='30'>
-    <meta name="sailthru.date" content='31'>
-    <meta name="PublishDate" content='32'>
-    <meta name="pubdate" datetime='33'>
+    <div class='dateline'>26</div>
+    <meta property="rnews:datePublished" content='27'>
+    <meta name="OriginalPublicationDate" content='28'>
+    <meta property="og:published_time" content='29'>
+    <meta name="article_date_original" content='30'>
+    <meta name="publication_date" content='31'>
+    <meta name="sailthru.date" content='32'>
+    <meta name="PublishDate" content='33'>
+    <meta name="pubdate" datetime='34'>
     </head></html>
     '''
     soup = BeautifulSoup(test_case, 'lxml')
