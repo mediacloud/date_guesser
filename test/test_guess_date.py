@@ -32,6 +32,8 @@ def test_guess_date_malformed():
     </div>
     </header></html>
     '''
+    soup = BeautifulSoup(html, 'lxml')
+    print(soup.find('div', {'class': 'dateline'}).text)
     guess = guess_date(url, html)
     assert guess.date.replace(tzinfo=pytz.utc) == datetime(2015, 3, 26, 0, 26, tzinfo=pytz.utc)
     assert guess.accuracy is Accuracy.DATETIME
