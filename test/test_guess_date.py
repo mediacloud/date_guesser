@@ -18,6 +18,25 @@ def test_guess_date():
     assert guess.method is NO_METHOD
 
 
+def test_guess_date_malformed():
+    url = 'https://nytimes.com/opinion/catalonia-spain-puigdemont.html'
+    html = '''
+    <html><header>
+    <div class="dateline">
+    <p>Published
+    <time datetime="2015-26-26T04:03:40Z" pubdate>Thursday, Mar. 26 2015, 12:26 AM EDT</time>
+    </p>
+    <p>Last updated
+    <time class="updated" datetime="2015-17-26T11:03:42Z" pubdate>Thursday, Mar. 26 2015, 7:17 AM EDT</time>
+    </p>
+    </div>
+    </header></html>
+    '''
+    guess = guess_date(url, html)
+    assert guess.date.replace(tzinfo=pytz.utc) == datetime(2015, 3, 26, 0, 26, tzinfo=pytz.utc)
+    assert guess.accuracy is Accuracy.DATETIME
+    assert 'Thursday' in guess.method
+
 class TestDateGuesser(object):
     def setup_method(self):
         self.parser = DateGuesser()
@@ -103,22 +122,3 @@ class TestDateGuesser(object):
         assert guess.date is None
         assert guess.accuracy is Accuracy.NONE
         assert 'No date' in guess.method
-
-    def test_malformed_date(self):
-        url = 'https://nytimes.com/opinion/catalonia-spain-puigdemont.html'
-        html = '''
-        <html><header>
-        <div class="dateline">
-        <p>Published
-        <time datetime="2015-26-26T04:03:40Z" pubdate>Thursday, Mar. 26 2015, 12:26 AM EDT</time>
-        </p>
-        <p>Last updated
-        <time class="updated" datetime="2015-17-26T11:03:42Z" pubdate>Thursday, Mar. 26 2015, 7:17 AM EDT</time>
-        </p>
-        </div>
-        </header></html>
-        '''
-        guess = self.parser.guess_date(url, html)
-        assert guess.date.replace(tzinfo=pytz.utc) == datetime(2015, 3, 26, 0, 26, tzinfo=pytz.utc)
-        assert guess.accuracy is Accuracy.DATETIME
-        assert 'Thursday' in guess.method
