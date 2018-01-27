@@ -1,6 +1,6 @@
 from enum import IntEnum
 
-LOCALE = 'en'
+LOCALE = 'en_us'
 
 
 class Accuracy(IntEnum):
