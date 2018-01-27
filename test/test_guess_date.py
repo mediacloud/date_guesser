@@ -1,7 +1,6 @@
 from datetime import datetime
 
 from bs4 import BeautifulSoup
-import dateutil
 import pytz
 
 from date_guesser import DateGuesser, guess_date
@@ -120,6 +119,6 @@ class TestDateGuesser(object):
         </header></html>
         '''
         guess = self.parser.guess_date(url, html)
-        assert guess.date == datetime(2015, 3, 26, 0, 26, tzinfo=dateutil.tz.tzlocal())
+        assert guess.date.replace(tzinfo=pytz.utc) == datetime(2015, 3, 26, 0, 26, tzinfo=pytz.utc)
         assert guess.accuracy is Accuracy.DATETIME
         assert 'Thursday' in guess.method
