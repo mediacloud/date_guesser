@@ -81,7 +81,7 @@ class DateGuesser(object):
         guess = self._choose_better_guess(guess, parse_url_for_date(url))
 
         # Try looking for specific elements
-        soup = BeautifulSoup(html, 'lxml')
+        soup = BeautifulSoup(html, 'html5lib')
         for tag_checker in self.tag_checkers:
             date_string, method = tag_checker(soup)
             new_date, new_accuracy = self.parser.parse(date_string)
