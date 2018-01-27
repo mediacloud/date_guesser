@@ -24,7 +24,7 @@ class MultiDateParser(object):
         DateFormat('MMM. D, YYYY', Accuracy.DATE),
         DateFormat('MMMM D, YYYY', Accuracy.DATE),
         DateFormat('MMMM YYYY', Accuracy.PARTIAL),
-        DateFormat('dddd, MMM. D YYYY, HH:mm A ZZZ', Accuracy.DATETIME),
+        DateFormat('dddd, MMM. D YYYY, HH:mm A', Accuracy.DATETIME),
         )
 
     def __init__(self, parser):
