@@ -8,11 +8,6 @@ here = abspath(dirname(__file__))
 with open(join(here, 'README.rst'), encoding='utf-8') as buff:
     long_description = buff.read()
 
-requirements_file = join(here, 'requirements.txt')
-
-with open(requirements_file) as f:
-    install_reqs = f.read().splitlines()
-
 setup(
     name='date_guesser',
     version='2.1.1',
@@ -30,6 +25,9 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
     packages=find_packages(exclude=['test']),
-    install_requires=install_reqs,
+    install_requires=['arrow>=0.12.0' ,
+                      'beautifulsoup4>=4.6.0' ,
+                      'lxml>=4.1.1' ,
+                      'pytz>=2017.3' ],
     include_package_data=True,
 )
