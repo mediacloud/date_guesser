@@ -10,7 +10,7 @@ with open(join(here, 'README.rst'), encoding='utf-8') as buff:
 
 setup(
     name='date_guesser',
-    version='2.1.2',
+    version='2.1.3',
     description='Extract publication dates from web pages',
     long_description=long_description,
     author='Colin Carroll',

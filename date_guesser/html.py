@@ -90,6 +90,7 @@ def get_tag_checkers():
         _make_tag_checker({'name': 'sailthru.date'}),
         _make_tag_checker({'name': 'PublishDate'}),
         _make_tag_checker({'name': 'pubdate'}, attr='datetime'),
+        _make_tag_checker({'class': 'authors__pubdate'}, attr='datetime', name='time'),
     )
 
 

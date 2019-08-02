@@ -64,6 +64,7 @@ def test_get_tag_checkers():
     <meta name="sailthru.date" content='32'>
     <meta name="PublishDate" content='33'>
     <meta name="pubdate" datetime='34'>
+    <time class="authors__pubdate" datetime='35'>
     </head></html>
     '''
     soup = BeautifulSoup(test_case, 'lxml')
