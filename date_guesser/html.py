@@ -59,8 +59,8 @@ def get_tag_checkers():
         _make_tag_checker({'property': 'article:published_time'}),  # thehill
         _make_tag_checker({'name': 'DC.date.published'}),  # WHO
         _make_tag_checker({'name': 'pubDate'}),  # nielson
-        # buzzfeed
-        _make_tag_checker({'class': 'buzz-timestamp__time js-timestamp__time'}, attr='data-unix'),
+        _make_tag_checker({'class': 'authors__pubdate'}, attr='datetime', name='time'), #bild.de
+        _make_tag_checker({'class': 'buzz-timestamp__time js-timestamp__time'}, attr='data-unix'), #buzzfeed
         _make_tag_checker({'class': 'published'}, name='abbr', attr='title'),  # sudantribune
         _make_tag_checker({'class': 'timestamp'}, attr='datetime'),  # propublica
         _make_tag_checker({'property': 'nv:date'}),  # msnbc
@@ -90,7 +90,6 @@ def get_tag_checkers():
         _make_tag_checker({'name': 'sailthru.date'}),
         _make_tag_checker({'name': 'PublishDate'}),
         _make_tag_checker({'name': 'pubdate'}, attr='datetime'),
-        _make_tag_checker({'class': 'authors__pubdate'}, attr='datetime', name='time'),
     )
 
 
